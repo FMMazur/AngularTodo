@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-card-header {
+  margin-bottom: 5px;
+}
+
+.mat-card-header-text {
+  margin: 0 !important;
+
+  .mat-card-title {
+    font-size: 1.2rem !important;
+    margin: 0 !important;
+  }
+}
+
+.mat-card-content {
+  align-self: flex-start;
+}
+
+mat-dialog-container {
+  background-color: white !important;
+  color: black !important;
+}
+
+mat-label {
+  color: black !important;
+}
+
+mat-form-field {
+  width: 100%;
+  background-color: white;
+}
+
+button {
+  &.mat-button-disabled {
+    color: grey !important;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="board" cdkDropListGroup>
+  <ng-container *ngFor="let list of lists">
+    <app-list [listId]="list.id" [name]="list.name"></app-list>
+  </ng-container>
+
+  <div class="add-container">
+    <button (click)="addList()">Add List</button>
+  </div>
+</div>

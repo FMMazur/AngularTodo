@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 class="name">{{ name }}</h2>
+  <mat-icon class="delete" (click)="deleteList()">delete</mat-icon>
+
+  <div class="list-content">
+    <button (click)="openAddCardModal()">Add Card</button>
+    <div
+      #list
+      cdkDropList
+      [cdkDropListData]="todos"
+      class="list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <mat-card class="card" *ngFor="let todo of todos" cdkDrag>
+        <mat-card-header>
+          <div class="container-title">
+            <mat-card-title>
+              {{ todo.title }}
+            </mat-card-title>
+          </div>
+          <mat-icon class="info-icon" (click)="openInfoDialog(todo)">help_outline</mat-icon>
+         <!--  -->
+         
+        </mat-card-header>
+
+        <mat-card *cdkDragPreview>
+          <mat-card-header>
+            <mat-card-title>
+              {{ todo.title }}
+            </mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </mat-card>
+    </div>
+  </div>
+</div>

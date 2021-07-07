@@ -1,0 +1,15 @@
+<div class="container-icons">
+  <mat-icon class="delete" (click)="deleteCard()">delete</mat-icon>
+  <mat-icon class="close" (click)="close()">close</mat-icon>
+</div>
+
+<div class="container">
+  <title mat-dialog-title>{{ data.title }}</title>
+
+  <mat-dialog-content *ngIf="data.description">
+    <hr />
+    <h3>Descrição:</h3>
+
+    <p>{{ data.description }}</p>
+  </mat-dialog-content>
+</div>
