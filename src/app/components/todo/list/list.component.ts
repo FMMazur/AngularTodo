@@ -22,6 +22,7 @@ import { ListsService } from 'src/app/services/lists.service';
 
 import { AddCardModalComponent } from '../add-card-modal/add-card-modal.component';
 import { DialogComponent } from '../dialog/dialog.component';
+import { EditListNameModalComponent } from '../edit-list-name-modal/edit-list-name-modal.component';
 
 @Component({
   selector: 'app-list',
@@ -65,6 +66,13 @@ export class ListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.todos = this.todoService.getByListId(this.id);
+    });
+  }
+
+  openEditListNameModal() {
+    this.matDialog.open(EditListNameModalComponent, {
+      width: '300px',
+      data: {id: this.id, name: this.name}
     });
   }
 

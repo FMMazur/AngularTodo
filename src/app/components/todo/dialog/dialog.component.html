@@ -17,9 +17,7 @@
       <h3>Descrição:</h3>
 
       <div class="description" *ngIf="!enableEdit">
-        <p *ngFor="let line of description()">
-          {{ line }}
-        </p>
+        <markdown [data]="data.description"></markdown>
       </div>
 
       <mat-form-field *ngIf="enableEdit">

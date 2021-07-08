@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MarkdownService } from 'ngx-markdown'
 import { Todo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
-
 @Component({
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
@@ -20,17 +20,14 @@ export class DialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Todo
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   deleteCard() {
     if (window.confirm('Are you sure you want to delete?')) {
       this.todoService.delete(this.data.id);
       this.dialogRef.close();
     }
-  }
-
-  description() {
-    return this.data.description.split(/\n/g)
   }
 
   edit() {

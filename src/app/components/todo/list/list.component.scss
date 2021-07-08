@@ -1,14 +1,9 @@
 @import "../../../variables.scss";
 
-:host {
-  max-width: 20% !important;
-}
-
 .container {
   background-color: $blue;
-  min-width: 15rem;
+  width: 15rem;
 
-  margin: 10px 15px;
   padding: 1rem;
 
   border-radius: 5px;
@@ -21,18 +16,33 @@
     text-align: center;
   }
 
-  .delete {
+  .list-actions-container {
     position: absolute;
     top: 7px;
     right: 7px;
 
-    cursor: pointer;
+    .delete,
+    .edit {
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-    color: $delete;
-    transition: 0.3s;
+    .delete {
+      color: $delete;
 
-    &:hover {
-      color: $delete-hover;
+      margin-left: 0.5rem;
+
+      &:hover {
+        color: $delete-hover;
+      }
+    }
+
+    .edit {
+      color: $edit;
+
+      &:hover {
+        color: $edit-hover;
+      }
     }
   }
 

@@ -22,6 +22,14 @@ import { ListComponent } from './components/todo/list/list.component';
 import { AddCardModalComponent } from './components/todo/add-card-modal/add-card-modal.component';
 import { BoardComponent } from './components/board/board.component';
 import { AddListComponent } from './components/board/add-list/add-list.component';
+import { EditListNameModalComponent } from './components/todo/edit-list-name-modal/edit-list-name-modal.component';
+
+import 'prismjs';
+import 'prismjs/components/prism-javascript.min.js';
+import 'prismjs/components/prism-css.min.js';
+import 'prismjs/components/prism-git.min.js';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
 
 @NgModule({
   declarations: [
@@ -32,6 +40,7 @@ import { AddListComponent } from './components/board/add-list/add-list.component
     AddCardModalComponent,
     BoardComponent,
     AddListComponent,
+    EditListNameModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,9 @@
 <div class="container">
   <h2 class="name">{{ name }}</h2>
-  <mat-icon class="delete" (click)="deleteList()">delete</mat-icon>
+  <div class="list-actions-container">
+    <mat-icon class="edit" (click)="openEditListNameModal()">edit</mat-icon>
+    <mat-icon class="delete" (click)="deleteList()">delete</mat-icon>
+  </div>
 
   <div class="list-content">
     <button (click)="openAddCardModal()">Add Card</button>

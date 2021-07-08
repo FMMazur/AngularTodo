@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Edit List Name</h1>
+
+<form [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+</div>
+  <div mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancelClick()">Cancel</button>
+    <button mat-button type="submit" [disabled]="!formData.valid">Save</button>
+  </div>
+</form>
