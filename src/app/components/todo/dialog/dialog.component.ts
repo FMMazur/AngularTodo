@@ -8,6 +8,12 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
+  enableEdit = false;
+  model = {
+    title: this.data.title,
+    description: this.data.description,
+  };
+
   constructor(
     public todoService: TodoService,
     public dialogRef: MatDialogRef<DialogComponent>,
@@ -21,6 +27,26 @@ export class DialogComponent implements OnInit {
       this.todoService.delete(this.data.id);
       this.dialogRef.close();
     }
+  }
+
+  description() {
+    return this.data.description.split(/\n/g)
+  }
+
+  edit() {
+    this.enableEdit = true;
+  }
+
+  save() {
+    let todo = {
+      ...this.data,
+      ...this.model
+    };
+
+    this.todoService.upsert(todo);
+
+    this.data = todo;
+    this.enableEdit = false;
   }
 
   close() {

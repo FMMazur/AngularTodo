@@ -12,6 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
+import { MarkdownModule } from 'ngx-markdown';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -42,6 +44,7 @@ import { AddListComponent } from './components/board/add-list/add-list.component
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MarkdownModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
   ],

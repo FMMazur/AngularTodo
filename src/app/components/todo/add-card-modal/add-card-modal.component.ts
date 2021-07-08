@@ -37,7 +37,8 @@ export class AddCardModalComponent {
       description: this.formData.value.description,
       listId: this.listId,
       id: -1,
-      userId: 1
+      userId: 1,
+      done: false
     }
 
     try {

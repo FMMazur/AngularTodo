@@ -4,6 +4,7 @@ export class Todo {
     public listId: number,
     public userId: number,
     public title: string,
-    public description: string
+    public description: string,
+    public done: boolean
   ) {}
 }

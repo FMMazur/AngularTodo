@@ -63,7 +63,7 @@ export class ListComponent implements OnInit {
       data: todo,
     });
 
-    dialogRef.afterClosed().subscribe(() => {
+    dialogRef.afterClosed().subscribe((result) => {
       this.todos = this.todoService.getByListId(this.id);
     });
   }
@@ -72,6 +72,11 @@ export class ListComponent implements OnInit {
     if (window.confirm('Are you sure you want to delete?')) {
       this.listsService.delete(this.id);
     }
+  }
+
+  toggleCardStatus(todo: Todo) {
+    this.todoService.upsert({...todo, done: !todo.done});
+    this.todos = this.todoService.getByListId(this.id);
   }
 
   drop(event: CdkDragDrop<Todo[]>) {

@@ -14,13 +14,16 @@
       <mat-card class="card" *ngFor="let todo of todos" cdkDrag>
         <mat-card-header>
           <div class="container-title">
-            <mat-card-title>
+            <input
+              type="checkbox"
+              [checked]="todo.done"
+              (click)="toggleCardStatus(todo)"
+            />
+            <mat-card-title [ngClass]="{'done': todo.done}">
               {{ todo.title }}
             </mat-card-title>
           </div>
           <mat-icon class="info-icon" (click)="openInfoDialog(todo)">help_outline</mat-icon>
-         <!--  -->
-         
         </mat-card-header>
 
         <mat-card *cdkDragPreview>

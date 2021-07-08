@@ -9,8 +9,18 @@
     top: -10px;
     right: 0px;
 
+    .edit, .save {
+      cursor: pointer;
+
+      color: $edit;
+      transition: 0.3s;
+
+      &:hover {
+        color: $edit-hover;
+      }
+    }
+
     .delete {
-      position: relative;
       cursor: pointer;
 
       color: $delete;

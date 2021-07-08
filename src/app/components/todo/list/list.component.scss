@@ -102,14 +102,23 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            width: 90%;
+            width: 87%;
             text-align: start;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
 
             mat-card-title {
               text-overflow: ellipsis;
               white-space: nowrap;
               overflow: hidden;
               margin-bottom: 0;
+              margin-left: 10px;
+
+              &.done {
+                text-decoration: line-through;
+              }
             }
           }
 

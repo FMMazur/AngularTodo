@@ -1,15 +1,31 @@
 <div class="container-icons">
+  <mat-icon class="edit" *ngIf="!enableEdit" (click)="edit()">edit</mat-icon>
+  <mat-icon class="save" *ngIf="enableEdit" (click)="save()">save</mat-icon>
   <mat-icon class="delete" (click)="deleteCard()">delete</mat-icon>
   <mat-icon class="close" (click)="close()">close</mat-icon>
 </div>
 
 <div class="container">
-  <title mat-dialog-title>{{ data.title }}</title>
+  <title *ngIf="!enableEdit" mat-dialog-title>{{ data.title }}</title>
+  <mat-form-field *ngIf="enableEdit">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="model.title" />
+    </mat-form-field>
 
-  <mat-dialog-content *ngIf="data.description">
-    <hr />
-    <h3>Descrição:</h3>
+    <mat-dialog-content *ngIf="data.description || enableEdit">
+      <hr />
+      <h3>Descrição:</h3>
 
-    <p>{{ data.description }}</p>
+      <div class="description" *ngIf="!enableEdit">
+        <p *ngFor="let line of description()">
+          {{ line }}
+        </p>
+      </div>
+
+      <mat-form-field *ngIf="enableEdit">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="model.description"></textarea>
+      </mat-form-field>
+
   </mat-dialog-content>
 </div>
