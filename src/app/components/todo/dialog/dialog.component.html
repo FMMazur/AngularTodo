@@ -1,6 +1,6 @@
 <div class="container-icons">
   <mat-icon class="edit" *ngIf="!enableEdit" (click)="edit()">edit</mat-icon>
-  <mat-icon class="save" *ngIf="enableEdit" (click)="save()">save</mat-icon>
+  <mat-icon class="save" *ngIf="enableEdit" (click)="save()" [ngClass]="{ 'disabled': !canSave()}">save</mat-icon>
   <mat-icon class="delete" (click)="deleteCard()">delete</mat-icon>
   <mat-icon class="close" (click)="close()">close</mat-icon>
 </div>

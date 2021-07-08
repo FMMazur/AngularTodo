@@ -35,6 +35,9 @@ export class DialogComponent implements OnInit {
   }
 
   save() {
+    if (!this.canSave())
+      return;
+
     let todo = {
       ...this.data,
       ...this.model
@@ -44,6 +47,10 @@ export class DialogComponent implements OnInit {
 
     this.data = todo;
     this.enableEdit = false;
+  }
+
+  canSave() {
+    return this.model.title !== '';
   }
 
   close() {

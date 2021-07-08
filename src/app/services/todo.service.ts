@@ -16,6 +16,7 @@ export class TodoService {
   }
 
   getAll(): Todo[] {
+    // If todo's is empty, and still haven't tried to take it from storage
     if (this.todos.length <= 0 && this.pickFromStorage) {
       this.todos = JSON.parse(localStorage.getItem(DB_TODOS) || '[]');
       this.pickFromStorage = false;
@@ -33,12 +34,15 @@ export class TodoService {
   }
 
   upsert(todo: Todo): Todo {
+    // add if todo's is empty or id equals -1
     if (todo.id === -1 || this.todos.length === 0) {
       todo.id = this.todos.length;
       this.todos.push(todo);
       console.log(this.todos);
     } else {
       let idx = this.todos.findIndex((todoSaved) => todo.id === todoSaved.id);
+
+      // if todo exists update else push to array
       if (idx !== -1) {
         this.todos[idx] = todo;
       } else {
@@ -60,7 +64,7 @@ export class TodoService {
       todo = this.todos.splice(idx, 1).pop();
       this.save();
     }
-      
+
 
     return todo;
   }

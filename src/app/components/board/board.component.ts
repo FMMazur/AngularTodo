@@ -11,20 +11,7 @@ import { AddListComponent } from './add-list/add-list.component';
 })
 export class BoardComponent implements OnInit {
   // TODO: teste da lista
-  lists: List[] = [
-    {
-      id: 1,
-      name: 'to do',
-    },
-    {
-      id: 2,
-      name: 'doing',
-    },
-    {
-      id: 3,
-      name: 'done',
-    },
-  ];
+  lists: List[] = [];
 
   constructor(
     private listsService: ListsService,

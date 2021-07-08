@@ -16,6 +16,7 @@ export class ListsService {
   constructor(private todoService: TodoService) {}
 
   getAll(): List[] {
+    // If lists is empty, and still haven't tried to take it from storage
     if (this.lists.length <= 0 && this.pickFromStorage) {
       let lists = localStorage.getItem(DB_LISTS) || '[]';
       this.lists = JSON.parse(lists);
@@ -30,11 +31,14 @@ export class ListsService {
   }
 
   upsert(list: List): List {
+    // add if lists is empty or id equals -1
     if (list.id === -1 || this.lists.length === 0) {
       list.id = this.lists.length;
       this.lists.push(list);
     } else {
       let idx = this.lists.findIndex((listSaved) => list.id === listSaved.id);
+
+      // if list exists update else push to array
       if (idx !== -1) {
         this.lists[idx] = list;
       } else {

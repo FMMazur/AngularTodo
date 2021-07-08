@@ -102,11 +102,13 @@ export class ListComponent implements OnInit {
         event.currentIndex
       );
 
-      event.container.data[event.currentIndex].listId = parseInt(
+      // Update todo listId
+      let todo = event.container.data[event.currentIndex];
+      todo.listId = parseInt(
         event.container.id.replace(/\D/g, '')
       );
 
-      this.todoService.upsert(event.container.data[event.currentIndex]);
+      this.todoService.upsert(todo);
     }
   }
 }

@@ -94,10 +94,17 @@
 
     .list {
       min-height: 1rem;
-      display: contents;
+      // display: flex;
+      // flex-direction: column;
+
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(auto-fit, 2.5rem);
+      row-gap: 5px;
 
       .card {
         padding: 8px 13px;
+        // margin: 3px;
 
         cursor: move;
 
